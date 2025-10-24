@@ -1,0 +1,26 @@
+-- Alterações
+
+ALTER TABLE produto ADD COLUMN peso DECIMAL(6,2);
+
+ALTER TABLE produto MODIFY nome VARCHAR(180);
+
+ALTER TABLE categoria ADD COLUMN data_criacao DATE DEFAULT (CURRENT_DATE);
+
+ALTER TABLE fornecedor ADD COLUMN cidade VARCHAR(80);
+
+ALTER TABLE funcionario ADD COLUMN comissao DECIMAL(5,2) DEFAULT 0.00;
+
+ALTER TABLE estoque ADD COLUMN ultima_saida DATE;
+
+ALTER TABLE cliente ADD COLUMN data_nascimento DATE;
+
+ALTER TABLE venda ADD COLUMN canal_venda ENUM('PRESENCIAL','ONLINE') DEFAULT 'PRESENCIAL';
+
+ALTER TABLE venda_item ADD COLUMN observacao TEXT;
+
+ALTER TABLE pagamento ADD COLUMN parcelado TINYINT(1) DEFAULT 0;
+
+ALTER TABLE promocao ADD COLUMN ativa TINYINT(1) DEFAULT 1;
+
+ALTER TABLE produto ADD INDEX idx_preco (preco);
+
